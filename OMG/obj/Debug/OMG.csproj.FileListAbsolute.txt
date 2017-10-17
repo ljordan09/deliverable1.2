@@ -1,0 +1,7 @@
+C:\Users\ljcon\source\repos\OMG\OMG\obj\Debug\OMG.csproj.CoreCompileInputs.cache
+C:\Users\ljcon\source\repos\OMG\OMG\obj\Debug\OMG.csprojResolveAssemblyReference.cache
+C:\Users\ljcon\source\repos\OMG\OMG\bin\Debug\OMG.exe.config
+C:\Users\ljcon\source\repos\OMG\OMG\bin\Debug\OMG.exe
+C:\Users\ljcon\source\repos\OMG\OMG\bin\Debug\OMG.pdb
+C:\Users\ljcon\source\repos\OMG\OMG\obj\Debug\OMG.exe
+C:\Users\ljcon\source\repos\OMG\OMG\obj\Debug\OMG.pdb
