@@ -42,7 +42,7 @@ namespace OMG
             int check2;
             int? sumNumber = null;
 
-            for (int i = 0; i <= firstInput.ToString().Length; ++i)
+            for (int i = 0; i <= firstInput.ToString().Length; i++)
             {
                 if (i == 0)
                 {
