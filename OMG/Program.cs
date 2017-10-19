@@ -13,9 +13,61 @@ namespace OMG
             UserPrompts();
             Console.ReadLine();
         }
-
-        public static void UserPrompts()// This function is designed to gain information from the user
+ 
+        public static int DataCheck(String somethingNew, int? firstInput = null)//This function is designed to validate the data received from the user
         {
+            int value = 0;
+            bool validate = false;
+            while (!validate)
+            {
+                Console.WriteLine(somethingNew);
+                if (!int.TryParse(firstInput, out value))//program crashes here i believe.
+                {
+                    Console.WriteLine("Invalid entry: you must enter a valid integer. Try again: ");
+                }
+                else if (firstInput != null && (firstInput.ToString().Length != value.ToString().Length))
+                {
+                    Console.WriteLine("Invalid entry: This integer has to have the same number of digits as the first" + firstInput.ToString().Length);
+                }
+                else
+                {
+                    validate = true;
+                }
+            }
+            return value;
+        }
+        public static bool Arithmetic(int firstInput, int secondInput)//This function is designed to perform the arithmetic of the program
+        {
+            int check1;
+            int check2;
+            int? sumNumber = null;
+
+            for (int i = 0; i <= firstInput.ToString().Length; ++i)
+            {
+                if (i == 0)
+                {
+                    check1 = firstInput % 10;
+                    check2 = secondInput % 10;
+                    sumNumber = check2 + check1;
+                }
+                else
+                {
+                    check1 = (firstInput) % 10;
+                    check2 = (secondInput) % 10;
+                    if (!(sumNumber != null && sumNumber == (check2 + check1)))
+                    {
+                        return false;
+                    }
+                }
+                firstInput = firstInput / 10;
+                secondInput = secondInput / 10;
+
+            }
+            return true;
+        }   
+        public static void UserPrompts()// This function is designed to gain information from the user
+
+        {   
             bool result;
             bool repeat = false;
             string doAgain = string.Empty;
@@ -39,7 +91,7 @@ namespace OMG
                     repeat = true;
 
                 else if (doAgain.ToUpper() == "NO" || doAgain.ToLower() == "No" || doAgain.ToLower() == "no")
-                {
+                {       
                     repeat = false;
                 }
                 else
@@ -52,61 +104,6 @@ namespace OMG
 
             Console.ReadKey();
         }
-
-        public static int DataCheck(String somethingNew, int? firstInput = null)//This function is designed to validate the data received from the user
-        {
-            int value = 0;
-            bool validate = false;
-            while (!validate)
-            {
-                Console.WriteLine(somethingNew);
-                if (!int.TryParse(firstInput, out value))//program crashes here i believe.
-                {
-                    Console.WriteLine("Invalid Entry: Please enter an integer");
-                }
-                else if (firstInput != null && (firstInput.ToString().Length != value.ToString().Length))
-                {
-                    Console.WriteLine("Invalid Entry: This integer has to have the same number of digits as the first " + firstInput.ToString().Length);
-                }
-                else
-                {
-                    validate = true;
-                }
-
-            }
-            return value;
-        }
-        private static bool Arithmetic(int firstInput, int secondInput)//This function is designed to perform the arithmetic of the program
-        {
-            int check1;
-            int check2;
-
-            int? sumNumber = null;
-            for (int i = 0; i <= firstInput.ToString().Length; ++i)
-            {
-                if (i == 0)
-                {
-                    check1 = firstInput % 10;
-                    check2 = secondInput % 10;
-                    sumNumber = check2 + check1;
-                }
-                else
-                {
-                    check1 = (firstInput) % 10;
-                    check2 = (secondInput) % 10;
-                    if (!(sumNumber != null && sumNumber == (check2 + check1)))
-                    {
-                        return false;
-                    }
-                }
-                firstInput = firstInput / 10;
-                secondInput = secondInput / 10;
-
-            }
-            return true;
-        }
-
-
 
     }           
 }
